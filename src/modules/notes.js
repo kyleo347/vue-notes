@@ -32,6 +32,7 @@ export default {
       }).catch(error => {
         commit('setStatus', 'FetchNotesError')
         console.log(error)
+        commit('setMessage', 'Error retrieving notes')
       })
     },
 
@@ -40,24 +41,28 @@ export default {
       state
     }, payload) {
       let i = state.data.findIndex(note => note.id === payload.id)
-      if (i >= 0) {
+      if (i >= 0) { // update
         commit('setStatus', 'UpdateNotePending')
         axios.put(url + `/${payload.id}`, payload).then(response => {
           commit('setStatus', 'UpdateNotecomplete')
           commit('updateNote', payload)
+          commit('setMessage', 'Note Saved')
         }).catch(error => {
           commit('setStatus', 'UpdateNoteError')
           console.log(error)
+          commit('setMessage', 'Error Saving')
         })
-      } else {
+      } else { // add
         const id = Math.ceil(Math.random() * 9999)
         commit('setStatus', 'AddNotePending')
-        axios.post(url, payload).then(response => {
+        axios.post(url, { ...payload, id: id }).then(response => {
           commit('setStatus', 'AddNoteComplete')
           commit('addNote', { ...payload, id: id })
+          commit('setMessage', 'Note Saved')
         }).catch(error => {
           commit('setStatus', 'AddNoteError')
           console.log(error)
+          commit('setMessage', 'Error Saving')
         })
       }
     },
@@ -67,9 +72,11 @@ export default {
       axios.delete(url + `/${id}`).then(response => {
         commit('setStatus', 'DeleteNoteComplete')
         commit('deleteNote', id)
+        commit('setMessage', 'Note Deleted')
       }).catch(error => {
         commit('setStatus', 'DeleteNoteError')
         console.log(error)
+        commit('setMessage', 'Error Deleting')
       })
     }
   },

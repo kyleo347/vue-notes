@@ -1,12 +1,12 @@
 {
   "notes": [
     {
-      "title": "grocery list",
+      "title": "grocery lists",
       "content": "popcorn, oil, butter, regular corn",
       "id": "1"
     },
     {
-      "title": "reminder to committt",
+      "title": "reminder to commit",
       "content": "github",
       "id": "2"
     },
@@ -14,11 +14,6 @@
       "id": "3",
       "title": "reminder to learn",
       "content": "awesome-vuetify"
-    },
-    {
-      "title": "The Plague",
-      "content": "Camus",
-      "id": "new"
     }
   ]
 }

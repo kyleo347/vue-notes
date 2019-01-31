@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapActions, mapState, mapMutations, mapGetters } from "vuex";
+import { mapActions, mapMutations, mapGetters } from "vuex";
 
 export default {
   data: () => ({
@@ -39,7 +39,7 @@ export default {
   computed: {
     selected: {
       get () {return this.$store.state.notes.selected},
-      set (value) {} 
+      set (value) {} // needs setter to avoid vue error
     }
   },
   methods: {

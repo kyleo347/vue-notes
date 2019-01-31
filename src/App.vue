@@ -48,10 +48,14 @@
     <v-footer color="indigo" app>
       <span class="white--text">&copy; 2017</span>
     </v-footer>
+    <v-snackbar v-model="message" bottom timeout="1000">
+      {{ message }}
+      </v-snackbar>
   </v-app>
 </template>
 
 <script>
+import { mapState } from "vuex";
 
 export default {
   name: 'App',
@@ -59,6 +63,9 @@ export default {
   },
   data: () => ({
     drawer: null
+  }),
+  computed: mapState({
+    message: state => state.message.data
   })
 }
 </script>

@@ -1,5 +1,10 @@
 # vuetut
 
+## To run with mock backend
+```
+npm start
+```
+
 ## Project setup
 ```
 npm install
