@@ -1,13 +1,14 @@
 <template>
-  <HelloWorld />
+  <NoteDashboard/>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+import NoteDashboard from "../components/NoteDashboard";
 
-  export default {
-    components: {
-      HelloWorld
-    }
+export default {
+  name: "home",
+  components: {
+    NoteDashboard
   }
+};
 </script>
